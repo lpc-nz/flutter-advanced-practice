@@ -4,7 +4,11 @@ import './font_manager.dart';
 
 TextStyle _getTextStyle(
     double fontSize, String fontFamily, FontWeight fontWeight, Color color) {
-  return TextStyle(fontSize: fontSize, fontFamily: fontFamily, color: color);
+  return TextStyle(
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      fontWeight: fontWeight,
+      color: color);
 }
 
 //Regular text style
