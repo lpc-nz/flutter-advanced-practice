@@ -15,8 +15,7 @@ ThemeData getApplicationTheme() {
     //ripple color
     splashColor: ColorManager.primaryOpacity70,
     // //Will be use incase of disabled button
-    colorScheme:
-        ColorScheme.fromSwatch().copyWith(secondary: ColorManager.grey2),
+    colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorManager.grey2),
 
     //Card view theme
     cardTheme: CardTheme(
@@ -66,6 +65,10 @@ ThemeData getApplicationTheme() {
       subtitle1: getMediumStyle(
         color: ColorManager.darkGrey,
         fontSize: FontSize.s14,
+      ),
+      subtitle2: getMediumStyle(
+        color: ColorManager.primary,
+        fontSize: FontSize.s16,
       ),
       caption: getRegularStyle(
         color: ColorManager.grey1,

@@ -80,13 +80,100 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     child: Text(
                       AppStrings.skip,
                       textAlign: TextAlign.end,
-                      style: getMediumStyle(color: ColorManager.primary),
+                      style: Theme.of(context).textTheme.subtitle2,
                     ))),
+
             //Todo: Add layout for indicator and arrows
+            _getBottomSheetWidget(),
           ],
         ),
       ),
     );
+  }
+
+  Widget _getBottomSheetWidget() {
+    return Container(
+      color: ColorManager.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //Left errow
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              child: const SizedBox(
+                height: AppSize.s20,
+                width: AppSize.s20,
+                child: Icon(Icons.arrow_left),
+              ),
+              onTap: () {
+                _pageController.animateToPage(
+                  _getPreviousIndex(),
+                  duration: const Duration(milliseconds: DurationConstant.d300),
+                  curve: Curves.bounceInOut,
+                );
+              },
+            ),
+          ),
+
+          //circle
+          Row(
+            children: [
+              for (int i = 0; i < _list.length; i++)
+                Padding(
+                  padding: const EdgeInsets.all(AppSize.s14),
+                  child: _getProperCircle(i),
+                ),
+            ],
+          ),
+
+          //Right errow
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              child: const SizedBox(
+                height: AppSize.s20,
+                width: AppSize.s20,
+                child: Icon(Icons.arrow_right),
+              ),
+              onTap: () {
+                _pageController.animateToPage(
+                  _getNextIndex(),
+                  duration: const Duration(milliseconds: DurationConstant.d300),
+                  curve: Curves.bounceInOut,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // --------Get Previous index-------
+  int _getPreviousIndex() {
+    int previousIndex = _currentIndex - 1;
+    if (previousIndex == -1) {
+      _currentIndex = _list.length - 1;
+    }
+    return _currentIndex;
+  }
+
+  // --------Get Next index-------
+  int _getNextIndex() {
+    int nextIndex = _currentIndex + 1;
+    if (nextIndex >= _list.length) {
+      _currentIndex = 0;
+    }
+    return _currentIndex;
+  }
+
+  Widget _getProperCircle(int index) {
+    if (index == _currentIndex) {
+      return const Icon(Icons.radio_button_checked);
+    } else {
+      return const Icon(Icons.radio_button_unchecked);
+    }
   }
 }
 
