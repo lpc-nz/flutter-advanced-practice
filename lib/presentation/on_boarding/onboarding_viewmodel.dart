@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:advanced_flutter/domain/baseviewmodel.dart';
+import 'package:advanced_flutter/domain/model.dart';
 import 'package:advanced_flutter/presentation/base/base_view_model.dart';
 import 'package:advanced_flutter/presentation/resources/assests_manager.dart';
 import 'package:advanced_flutter/presentation/resources/strings_manager.dart';

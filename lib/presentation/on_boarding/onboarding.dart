@@ -1,4 +1,4 @@
-import 'package:advanced_flutter/domain/baseviewmodel.dart';
+import 'package:advanced_flutter/domain/model.dart';
 import 'package:advanced_flutter/presentation/on_boarding/onboarding_viewmodel.dart';
 import 'package:advanced_flutter/presentation/resources/color_manager.dart';
 import 'package:advanced_flutter/presentation/resources/routes_manager.dart';
