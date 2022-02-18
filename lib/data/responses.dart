@@ -1,4 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
+part 'responses.g.dart';
+
+/// API response for authentication
 
 @JsonSerializable()
 class BaseResponse {
@@ -16,6 +19,8 @@ class CustomerResponse {
   String? name;
   @JsonKey(name: "numOfNotifications")
   int? numOfNotification;
+
+  CustomerResponse(this.id, this.name, this.numOfNotification);
 }
 
 @JsonSerializable()
@@ -26,6 +31,8 @@ class ContactResponse {
   String? link;
   @JsonKey(name: "email")
   String? email;
+
+  ContactResponse(this.phoneNumber, this.link, this.email);
 }
 
 @JsonSerializable()
@@ -34,4 +41,9 @@ class AuthenticationResponse extends BaseResponse {
   CustomerResponse? customer;
   @JsonKey(name: "contacts")
   ContactResponse? contacts;
+
+  AuthenticationResponse(this.customer, this.contacts);
+  // From Json
+
+  // To Json
 }
